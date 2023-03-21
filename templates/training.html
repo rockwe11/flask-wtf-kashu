@@ -1,8 +1,15 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h2 class="text-center">{{ training }}</h2>
-    <div class="text-center">
-        <img src="{{ img }}" />
-    </div>
+    {% if "инженер" in prof or "строитель" in prof %}
+        <h2 class="text-center">Инженерные тренажеры</h2>
+        <div class="text-center">
+            <img src="{{ url_for('static', filename='img/mars.png') }}" />
+        </div>
+    {% else %}
+        <h2 class="text-center">Научные симуляторы</h2>
+        <div class="text-center">
+            <img src="{{ url_for('static', filename='img/science.png') }}" />
+        </div>
+    {% endif %}
 {% endblock %}

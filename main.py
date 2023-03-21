@@ -11,10 +11,12 @@ def index():
 
 @app.route('/training/<prof>')
 def training(prof):
-    if "инженер" in prof or "строитель" in prof:
-        return render_template("training.html", training="Инженерные тренажеры", img=url_for('static', filename='img/mars.png'))
-    else:
-        return render_template("training.html", training="Научные симуляторы", img=url_for('static', filename='img/science.png'))
+    return render_template("training.html", prof=prof)
+    # return render_template("training.html", training="Инженерные тренажеры", img=url_for('static', filename='img/mars.png'))
+    # if "инженер" in prof or "строитель" in prof:
+    #     return render_template("training.html", training="Инженерные тренажеры", img=url_for('static', filename='img/mars.png'))
+    # else:
+    #     return render_template("training.html", training="Научные симуляторы", img=url_for('static', filename='img/science.png'))
 
 
 if __name__ == '__main__':
