@@ -12,11 +12,14 @@ def index():
 @app.route('/training/<prof>')
 def training(prof):
     return render_template("training.html", prof=prof)
-    # return render_template("training.html", training="Инженерные тренажеры", img=url_for('static', filename='img/mars.png'))
-    # if "инженер" in prof or "строитель" in prof:
-    #     return render_template("training.html", training="Инженерные тренажеры", img=url_for('static', filename='img/mars.png'))
-    # else:
-    #     return render_template("training.html", training="Научные симуляторы", img=url_for('static', filename='img/science.png'))
+
+
+@app.route("/list_prof/<list>")
+def list_prof(list):
+    profs = ["инженер-исследователь", "пилот", "строитель", "экзобиолог", "врач", "инженер по терраформированию",
+             "климатолог", "специалист по радиационной защите", "астрогеолог", "гляциолог", "инженер жизнеобеспечения",
+             "метеоролог", "оператор марсохода", "киберинженер", "штурман", "пилот дронов"]
+    return render_template("list_prof.html", type=list, list=profs)
 
 
 if __name__ == '__main__':
