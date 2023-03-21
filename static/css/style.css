@@ -1,0 +1,9 @@
+h4.header {
+    color: #b3b3b3;
+    font-weight: bold;
+}
+
+h4 {
+    padding-left: 20px;
+    font-weight: normal;
+}
