@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="center_div">
+    <h3 style="text-align: center;">Размещение по каютам</h3>
+    {% for name in info %}
+        <h4>{{ name }} - Каюта №{{ loop.index }}{% if loop.first %} - капитан корабля{% endif %}</h4>
+    {% endfor %}
+</div>
+{% endblock %}
