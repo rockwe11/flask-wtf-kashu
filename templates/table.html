@@ -11,16 +11,16 @@
   </thead>
   <tbody>
     <tr>
-      {% if sex == "female" and age < 18 %}
+      {% if sex == "female" and age < 21 %}
       <td bgcolor="#edbf9d"></td>
       <td><img src="{{ url_for('static', filename='img/little.jpg') }}" style="max-height: 50%; width: auto;"></td>
-      {% elif sex == "female" and age >= 18 %}
+      {% elif sex == "female" and age >= 21 %}
       <td bgcolor="#e6101b"></td>
       <td><img src="{{ url_for('static', filename='img/not_little.jpg') }}" style="max-height: 50%; width: auto;"></td>
-      {% elif sex == "male" and age < 18 %}
+      {% elif sex == "male" and age < 21 %}
       <td bgcolor="#9dd0ed"></td>
       <td><img src="{{ url_for('static', filename='img/little.jpg') }}" style="max-height: 50%; width: auto;"></td>
-      {% elif sex == "male" and age >= 18 %}
+      {% elif sex == "male" and age >= 21 %}
       <td bgcolor="#087cbf"></td>
       <td><img src="{{ url_for('static', filename='img/not_little.jpg') }}" style="max-height: 50%; width: auto;"></td>
       {% endif %}
