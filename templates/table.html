@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 style="text-align: center;">Оформление каюты</h2>
+<table class="table table-fixed text-center" style="width: 50%; margin: 0 auto; table-layout: fixed;">
+  <thead>
+    <tr>
+      <th scope="col">Цвет стен</th>
+      <th scope="col">Эмблема</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      {% if sex == "female" and age < 18 %}
+      <td bgcolor="#edbf9d"></td>
+      <td><img src="{{ url_for('static', filename='img/little.jpg') }}" style="max-height: 50%; width: auto;"></td>
+      {% elif sex == "female" and age >= 18 %}
+      <td bgcolor="#e6101b"></td>
+      <td><img src="{{ url_for('static', filename='img/not_little.jpg') }}" style="max-height: 50%; width: auto;"></td>
+      {% elif sex == "male" and age < 18 %}
+      <td bgcolor="#9dd0ed"></td>
+      <td><img src="{{ url_for('static', filename='img/little.jpg') }}" style="max-height: 50%; width: auto;"></td>
+      {% elif sex == "male" and age >= 18 %}
+      <td bgcolor="#087cbf"></td>
+      <td><img src="{{ url_for('static', filename='img/not_little.jpg') }}" style="max-height: 50%; width: auto;"></td>
+      {% endif %}
+    </tr>
+  </tbody>
+</table>
+{% endblock %}
