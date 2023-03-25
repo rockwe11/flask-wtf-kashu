@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% for hist in hists %}
+    <img src="{{ url_for('static', filename=hist) }}">
+{% endfor %}
+<form action="" method="post" enctype="multipart/form-data" novalidate>
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.file.label }}<br>
+        {{ form.file(class="form-control-file") }}<br>
+        {% for error in form.file.errors %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+    {% endfor %}
+    </p>
+    <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+</form>
+{% endblock %}

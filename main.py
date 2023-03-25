@@ -1,5 +1,9 @@
-from flask import Flask, render_template, url_for, redirect
+import os
 
+from flask import Flask, render_template, url_for, redirect, request
+from werkzeug.utils import secure_filename
+
+from forms.load_img import LoadIMGForm
 from forms.login import LoginForm
 
 app = Flask(__name__)
@@ -65,6 +69,26 @@ def distribution():
 @app.route("/table/<sex>/<int:age>")
 def table(sex, age):
     return render_template("table.html", sex=sex, age=age)
+
+
+@app.route("/galery", methods=['POST', 'GET'])
+def galery():
+    form = LoadIMGForm()
+    if form.validate_on_submit():
+        f = form.file.data
+        filename = secure_filename(f.filename)
+        f.save(os.path.join(
+            os.getcwd(), 'static/img/galery', filename
+        ))
+        # f.save("/static/img/galery/\"" + f.filename + '\"')
+        # print(f)
+        # with open("/static/img/galery/" + f.name) as file:
+        #     file.write(f.read())
+        return redirect("/galery")
+    hists = os.listdir('static/img/galery')
+    hists = ['img/galery/' + file for file in hists]
+    print(hists)
+    return render_template("galery.html", title="Красная планета", hists=hists, form=form)
 
 
 if __name__ == '__main__':
